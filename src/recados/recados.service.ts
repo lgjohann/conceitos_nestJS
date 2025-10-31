@@ -21,8 +21,8 @@ export class RecadosService {
     return this.recados;
   }
 
-  findOne(id: string): Recado {
-    const recado = this.recados.find(recado => recado.id === +id);
+  findOne(id: number): Recado {
+    const recado = this.recados.find(recado => recado.id === id);
 
     if (recado) return recado;
 
@@ -42,8 +42,8 @@ export class RecadosService {
     return newRecado;
   }
 
-  update(id: string, recadoUpdateDTO: RecadoUpdateDTO): Recado {
-    const recadoIndex = this.recados.findIndex(recado => recado.id === +id);
+  update(id: number, recadoUpdateDTO: RecadoUpdateDTO): Recado {
+    const recadoIndex = this.recados.findIndex(recado => recado.id === id);
     if (recadoIndex === -1) {
       throw new NotFoundException('Recado não encontrado');
     }
@@ -57,8 +57,8 @@ export class RecadosService {
     return updatedRecado;
   }
 
-  remove(id: string): Recado {
-    const recadoIndex = this.recados.findIndex(recado => recado.id === +id);
+  remove(id: number): Recado {
+    const recadoIndex = this.recados.findIndex(recado => recado.id === id);
     if (recadoIndex === -1) {
       throw new NotFoundException('Recado não encontrado');
     }

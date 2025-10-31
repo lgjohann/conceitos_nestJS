@@ -23,7 +23,7 @@ export class RecadosController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Recado {
+  findOne(@Param('id') id: number): Recado {
     return this.recadoService.findOne(id);
   }
 
@@ -34,14 +34,14 @@ export class RecadosController {
 
   @Put(':id')
   update(
-    @Param('id') id: string,
+    @Param('id') id: number,
     @Body() recadoUpdateDTO: RecadoUpdateDTO,
   ): Recado {
     return this.recadoService.update(id, recadoUpdateDTO);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string): Recado {
+  remove(@Param('id') id: number): Recado {
     return this.recadoService.remove(id);
   }
 }
