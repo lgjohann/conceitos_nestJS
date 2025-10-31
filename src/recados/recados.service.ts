@@ -5,7 +5,7 @@ import { RecadoUpdateDTO } from './dto/RecadoUpdateDTO';
 
 @Injectable()
 export class RecadosService {
-  private lastId: 1;
+  private lastId: number = 1;
   private recados: Recado[] = [
     {
       id: 1,
@@ -22,7 +22,7 @@ export class RecadosService {
   }
 
   findOne(id: string): Recado {
-    const recado = this.recados.find((recado) => recado.id === +id);
+    const recado = this.recados.find(recado => recado.id === +id);
 
     if (recado) return recado;
 
@@ -43,7 +43,7 @@ export class RecadosService {
   }
 
   update(id: string, recadoUpdateDTO: RecadoUpdateDTO): Recado {
-    const recadoIndex = this.recados.findIndex((recado) => recado.id === +id);
+    const recadoIndex = this.recados.findIndex(recado => recado.id === +id);
     if (recadoIndex === -1) {
       throw new NotFoundException('Recado não encontrado');
     }
@@ -58,7 +58,7 @@ export class RecadosService {
   }
 
   remove(id: string): Recado {
-    const recadoIndex = this.recados.findIndex((recado) => recado.id === +id);
+    const recadoIndex = this.recados.findIndex(recado => recado.id === +id);
     if (recadoIndex === -1) {
       throw new NotFoundException('Recado não encontrado');
     }
