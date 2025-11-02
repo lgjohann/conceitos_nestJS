@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   Put,
 } from '@nestjs/common';
@@ -23,7 +24,7 @@ export class RecadosController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number): Recado {
+  findOne(@Param('id', ParseIntPipe) id: number): Recado {
     return this.recadoService.findOne(id);
   }
 
@@ -34,14 +35,14 @@ export class RecadosController {
 
   @Put(':id')
   update(
-    @Param('id') id: number,
+    @Param('id', ParseIntPipe) id: number,
     @Body() recadoUpdateDTO: RecadoUpdateDTO,
   ): Recado {
     return this.recadoService.update(id, recadoUpdateDTO);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: number): Recado {
+  remove(@Param('id', ParseIntPipe) id: number): Recado {
     return this.recadoService.remove(id);
   }
 }
